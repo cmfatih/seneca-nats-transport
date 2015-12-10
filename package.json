@@ -40,7 +40,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "nats": "0.4.x"
+    "nats": "0.5.x"
   },
   "devDependencies": {
     "chai": "3.3.x",
@@ -50,6 +50,6 @@
     "mocha-multi": "0.7.x",
     "dependency-check": "2.5.x",
     "istanbul": "0.4.x",
-    "seneca": "0.6.x"
+    "seneca": "0.9.x"
   }
 }
