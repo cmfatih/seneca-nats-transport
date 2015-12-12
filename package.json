@@ -34,6 +34,7 @@
     "depcheck": "dependency-check . lib/*",
     "depcheck:unused": "dependency-check ./package.json --unused --no-dev lib/*",
     "test:unit": "mkdir -p reports/ && NODE_ENV=test multi='spec=- xunit=reports/mocha-xunit.xml' istanbul cover _mocha -- -R mocha-multi test/test-*.js --timeout 10000 && istanbul check-coverage",
+    "test:coveralls": "cat reports/coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test": "npm run depcheck && npm run depcheck:unused && npm run lint && npm run test:unit"
   },
   "engines": {
@@ -50,6 +51,7 @@
     "mocha-multi": "0.7.x",
     "dependency-check": "2.5.x",
     "istanbul": "0.4.x",
+    "coveralls": "2.11.x",
     "seneca": "0.8.x"
   }
 }
