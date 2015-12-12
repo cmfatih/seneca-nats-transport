@@ -3,7 +3,8 @@ language: node_js
 node_js:
   - "0.10"
   - "0.12"
-  - "4.1"
+  - "4.2.3"
+  - "5.2.0"
 before_script:
   - mkdir -p gnatsd
   - wget https://github.com/nats-io/gnatsd/releases/download/v0.6.8/gnatsd-v0.6.8-linux-amd64.tar.gz -qO - | tar -zxvC gnatsd/
