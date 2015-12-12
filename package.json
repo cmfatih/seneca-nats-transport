@@ -50,6 +50,6 @@
     "mocha-multi": "0.7.x",
     "dependency-check": "2.5.x",
     "istanbul": "0.4.x",
-    "seneca": "0.9.x"
+    "seneca": "0.8.x"
   }
 }
