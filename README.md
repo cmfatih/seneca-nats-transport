@@ -1,6 +1,6 @@
 ## seneca-nats-transport
 
-[![NPM][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
+[![NPM][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage][coverage-image]][coverage-url]
 
 Seneca NATS transport.
 
@@ -53,3 +53,6 @@ For the full copyright and license information, please view the LICENSE.txt file
 
 [travis-url]: https://travis-ci.org/cmfatih/seneca-nats-transport
 [travis-image]: https://travis-ci.org/cmfatih/seneca-nats-transport.svg?branch=master
+
+[coverage-url]: https://coveralls.io/github/cmfatih/seneca-nats-transport?branch=master
+[coverage-image]: https://coveralls.io/repos/cmfatih/seneca-nats-transport/badge.svg?branch=master&service=github)
