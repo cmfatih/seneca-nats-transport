@@ -1,5 +1,5 @@
 /* jslint node: true */
-/* global describe: false, it: false */
+/* global describe: false, it: false, beforeEach: false, afterEach: false */
 'use strict';
 
 var lib = require('../'),
@@ -9,7 +9,7 @@ var lib = require('../'),
 
 // Tests
 
-var testIt = function testIt(func, done) {
+var testIt = function testIt (func, done) {
   let err = null;
   try { func(); } catch (e) { err = e; } finally { done(err); }
 };
@@ -48,8 +48,8 @@ describe('lib', function () {
     });
 
     server.use(lib).add(pattern, function (msg, done) {
-        return done(null, msg);
-      }).listen({type: 'nats'});
+      return done(null, msg);
+    }).listen({type: 'nats'});
 
     client.use(lib).client({type: 'nats'}).act(message);
   });
@@ -76,10 +76,12 @@ describe('lib', function () {
     server.use(lib).add(pattern, function (msg, done) {
       return done(null, msg);
     }).listen({type: 'nats'});
-
-    client.use(lib).client({type: 'nats'}).ready(function () {
-      this.act(message);
-    });
+    // give seneca a chance to finish intializing.
+    setTimeout(function () {
+      client.use(lib).client({type: 'nats'}).ready(function () {
+        this.act(message);
+      });
+    }, 50);
 
   });
 
