@@ -14,4 +14,4 @@ before_script:
   - gnatsd-v${GNATSD_VERSION}-linux-amd64/gnatsd &
 
 after_success:
-  - npm run test:coveralls
+  - npm run test
