@@ -4,13 +4,15 @@
   "description": "Seneca NATS transport",
   "main": "index.js",
   "scripts": {
-    "lint": "jshint --reporter node_modules/jshint-stylish *.js test/*",
-    "lint:build": "jshint --reporter checkstyle *.js test/* > reports/jshint-checkstyle.xml",
-    "depcheck": "dependency-check . *.js",
-    "depcheck:unused": "dependency-check ./package.json --unused --no-dev *.js",
-    "test:unit": "mkdir -p reports/ && NODE_ENV=test multi='spec=- xunit=reports/mocha-xunit.xml' istanbul cover _mocha -- -R mocha-multi && istanbul check-coverage",
-    "test:coveralls": "cat reports/coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
-    "test": "npm run lint && npm run test:unit"
+    "start": "echo \"no entry point\"",
+    "test": "npm run lab",
+    "lab": "lab -v test/*.test.js -T node_modules/lab-babel --leaks --timeout 555555",
+    "build": "babel ./src/index.js -o ./dist/index.js --presets es2015"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
   },
   "repository": {
     "type": "git",
@@ -27,20 +29,35 @@
     "microservices"
   ],
   "author": "devfacet",
+  "contributors": [
+    {
+      "name": "FelipeBarrosCruz",
+      "email": "felipe.barros.pt@gmail.com",
+      "url": "https://www.felipebarroscruz.com.br"
+    }
+  ],
   "license": "MIT",
   "homepage": "http://github.com/devfacet/seneca-nats-transport",
   "dependencies": {
     "nats": "0.7.x"
   },
   "devDependencies": {
-    "chai": "3.5.x",
-    "jshint": "2.9.x",
-    "jshint-stylish": "2.2.x",
-    "mocha": "3.2.x",
-    "mocha-multi": "0.10.x",
-    "dependency-check": "2.8.x",
-    "istanbul": "0.4.x",
-    "coveralls": "^2.11.16",
-    "seneca": "1.1.x"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chai": "^4.1.2",
+    "code": "^5.2.0",
+    "eslint": "^2.12.0",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-promise": "^1.3.2",
+    "eslint-plugin-standard": "^1.3.2",
+    "husky": "^0.15.0-rc.8",
+    "lab": "^15.3.0",
+    "lab-babel": "^1.1.1",
+    "seneca": "^3.4.3"
   }
 }

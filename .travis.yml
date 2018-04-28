@@ -3,9 +3,7 @@ sudo: false
 language: node_js
 
 node_js:
-  - "0.10"
-  - "4"
-  - "6"
+  - "8"
 
 before_script:
   - mkdir -p gnatsd
@@ -14,4 +12,4 @@ before_script:
   - gnatsd-v${GNATSD_VERSION}-linux-amd64/gnatsd &
 
 after_success:
-  - npm run test:coveralls
+  - npm run test
